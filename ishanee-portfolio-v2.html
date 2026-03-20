@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ishanee Singh Rathore — Marketing & Sales</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg2: #0f0f1a;
+  --surface: #141420;
+  --surface2: #1a1a2e;
+  --pink: #ff2d78;
+  --cyan: #00e5ff;
+  --yellow: #ffe600;
+  --purple: #b44fff;
+  --white: #f0f0f0;
+  --muted: rgba(240,240,240,0.45);
+  --border: rgba(255,255,255,0.07);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  width: 12px; height: 12px;
+  background: var(--pink);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,45,120,0.5);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.18s ease, width 0.3s, height 0.3s;
+}
+
+/* NOISE OVERLAY */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; opacity: 0.4;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 3rem;
+  background: rgba(10,10,15,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem; letter-spacing: 0.15em;
+  color: var(--white);
+}
+.nav-logo span { color: var(--pink); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cyan); }
+.nav-cta {
+  padding: 0.5rem 1.3rem;
+  background: var(--pink);
+  color: var(--white);
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border: none; cursor: none;
+  text-decoration: none;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--purple); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3rem 4rem;
+  padding-top: 100px;
+  position: relative; overflow: hidden;
+}
+
+.hero-gradient {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(180,79,255,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 20% 80%, rgba(255,45,120,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(0,229,255,0.06) 0%, transparent 60%),
+    var(--bg);
+}
+
+.hero-grid-lines {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-tag-row {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem; position: relative; z-index: 2;
+}
+.hero-tag {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--pink);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--pink);
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.hero-tag.cyan { border-color: var(--cyan); color: var(--cyan); }
+.hero-tag.yellow { border-color: var(--yellow); color: var(--yellow); }
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 14vw, 13rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  position: relative; z-index: 2;
+  color: var(--white);
+}
+.hero-name .stroke {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.15);
+  color: transparent;
+}
+.hero-name .pink { color: var(--pink); }
+
+.hero-bottom {
+  display: flex; align-items: flex-end;
+  justify-content: space-between; gap: 2rem;
+  margin-top: 2.5rem; position: relative; z-index: 2;
+  flex-wrap: wrap;
+}
+.hero-desc {
+  max-width: 45ch;
+  font-size: 1rem; font-weight: 300; line-height: 1.7;
+  color: rgba(240,240,240,0.65);
+}
+.hero-desc strong { color: var(--white); font-weight: 600; }
+
+.hero-scroll-hint {
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 0.5rem;
+}
+.scroll-line {
+  width: 40px; height: 1px; background: var(--muted);
+  animation: scrollLine 2s infinite;
+}
+@keyframes scrollLine {
+  0%,100% { width: 40px; opacity: 1; }
+  50% { width: 20px; opacity: 0.4; }
+}
+
+/* ── ROLE SWITCHER ── */
+#role-switch {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  position: sticky; top: 73px; z-index: 400;
+  overflow-x: auto;
+}
+.role-tabs {
+  display: flex; align-items: stretch;
+  min-width: max-content;
+}
+.role-tab {
+  padding: 1.1rem 2.5rem;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+  background: transparent; border: none; cursor: none;
+  border-right: 1px solid var(--border);
+  transition: all 0.25s;
+  position: relative; white-space: nowrap;
+}
+.role-tab::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--pink); transform: scaleX(0);
+  transition: transform 0.25s;
+}
+.role-tab:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+.role-tab.active { color: var(--white); background: rgba(255,45,120,0.08); }
+.role-tab.active::after { transform: scaleX(1); }
+.role-tab-icon { margin-right: 0.5rem; font-size: 0.9rem; }
+
+/* ── ABOUT / ROLE PANEL ── */
+#about {
+  padding: 6rem 3rem;
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 5rem; align-items: start;
+  background: var(--bg2);
+  position: relative; overflow: hidden;
+}
+#about::before {
+  content: 'ABOUT';
+  position: absolute; right: -2rem; top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10rem; color: rgba(255,255,255,0.02);
+  letter-spacing: 0.1em; pointer-events: none;
+}
+
+.about-left {}
+.section-eyebrow {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--pink); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-eyebrow::before {
+  content: ''; width: 24px; height: 2px; background: var(--pink);
+}
+
+.about-headline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800; line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.about-headline .highlight {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.edu-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.edu-card {
+  padding: 1.2rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  position: relative; overflow: hidden;
+}
+.edu-card::before {
+  content: ''; position: absolute;
+  top: 0; right: 0; bottom: 0; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.03));
+}
+.edu-degree { font-weight: 700; font-size: 0.9rem; }
+.edu-school { font-size: 0.78rem; color: var(--cyan); margin-top: 0.2rem; }
+.edu-year { font-size: 0.7rem; color: var(--muted); margin-top: 0.15rem; font-family: 'Space Grotesk'; }
+
+.about-right { position: relative; }
+
+.role-panel { display: none; animation: panelIn 0.4s ease; }
+.role-panel.active { display: block; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.role-panel-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.role-panel-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+.role-panel-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem; font-weight: 800;
+}
+.role-panel-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+
+.role-panel-body {
+  font-size: 0.92rem; line-height: 1.8;
+  color: rgba(240,240,240,0.75);
+  margin-bottom: 2rem; font-weight: 300;
+}
+.role-panel-body strong { color: var(--white); font-weight: 600; }
+
+.role-kpis {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.8rem; margin-bottom: 2rem;
+}
+.role-kpi {
+  padding: 1rem 1.2rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--pink);
+}
+.role-kpi .kpi-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; color: var(--pink); line-height: 1;
+}
+.role-kpi .kpi-label {
+  font-size: 0.72rem; color: var(--muted);
+  margin-top: 0.2rem; line-height: 1.4;
+}
+
+.role-bullets { list-style: none; }
+.role-bullets li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.83rem; color: rgba(240,240,240,0.65);
+  display: flex; align-items: flex-start; gap: 0.8rem; line-height: 1.5;
+}
+.role-bullets li::before {
+  content: '▸'; color: var(--pink); flex-shrink: 0;
+}
+
+/* ── METRICS ── */
+#metrics {
+  padding: 5rem 3rem;
+  background: var(--bg);
+  position: relative; overflow: hidden;
+}
+.metrics-marquee-bg {
+  position: absolute; top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18rem; color: rgba(255,255,255,0.015);
+  white-space: nowrap; letter-spacing: 0.1em;
+  pointer-events: none; user-select: none;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(-50%); }
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  position: relative; z-index: 1;
+  margin-top: 3rem;
+}
+.metric-card {
+  background: var(--surface);
+  padding: 2.5rem 2rem;
+  position: relative; overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink);
+}
+.metric-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+}
+.metric-card.c::before { background: linear-gradient(90deg, var(--cyan), #00b4d8); }
+.metric-card.y::before { background: linear-gradient(90deg, var(--yellow), #ff9500); }
+.metric-glow {
+  position: absolute; top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(255,45,120,0.15), transparent);
+  pointer-events: none;
+}
+.metric-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; line-height: 1;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.metric-num .unit { font-size: 2rem; color: var(--pink); }
+.metric-desc {
+  font-size: 0.78rem; color: var(--muted);
+  line-height: 1.55;
+}
+.metric-source {
+  font-size: 0.62rem; color: rgba(255,255,255,0.2);
+  margin-top: 1rem; letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* ── EXPERIENCE ── */
+#experience {
+  padding: 5rem 3rem;
+  background: var(--bg2);
+}
+.exp-grid {
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 1px; margin-top: 3rem;
+}
+.exp-list { border-right: 1px solid var(--border); }
+.exp-tab {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  cursor: none; transition: all 0.2s;
+  position: relative;
+}
+.exp-tab::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--pink); transform: scaleY(0);
+  transition: transform 0.25s;
+}
+.exp-tab:hover { background: rgba(255,255,255,0.03); }
+.exp-tab.active { background: rgba(255,45,120,0.06); }
+.exp-tab.active::before { transform: scaleY(1); }
+.exp-tab-role { font-weight: 700; font-size: 0.88rem; }
+.exp-tab-company { font-size: 0.75rem; color: var(--cyan); margin-top: 0.2rem; }
+.exp-tab-date {
+  font-size: 0.65rem; color: var(--muted);
+  margin-top: 0.2rem; font-family: 'Space Grotesk';
+  letter-spacing: 0.06em;
+}
+
+.exp-detail { padding: 2.5rem 3rem; }
+.exp-detail-panel { display: none; animation: panelIn 0.3s ease; }
+.exp-detail-panel.active { display: block; }
+
+.exp-detail-header { margin-bottom: 2rem; }
+.exp-detail-role {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem; font-weight: 800; line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.exp-detail-meta {
+  display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+}
+.exp-chip {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.exp-chip.pink { background: rgba(255,45,120,0.15); color: var(--pink); border: 1px solid rgba(255,45,120,0.3); }
+.exp-chip.cyan { background: rgba(0,229,255,0.1); color: var(--cyan); border: 1px solid rgba(0,229,255,0.25); }
+.exp-chip.yellow { background: rgba(255,230,0,0.1); color: var(--yellow); border: 1px solid rgba(255,230,0,0.25); }
+
+.exp-bullets { list-style: none; margin-top: 1.5rem; }
+.exp-bullets li {
+  padding: 0.7rem 0; border-bottom: 1px solid var(--border);
+  font-size: 0.85rem; color: rgba(240,240,240,0.7);
+  display: flex; gap: 0.8rem; align-items: flex-start; line-height: 1.6;
+}
+.exp-bullets li::before {
+  content: '→'; color: var(--pink); flex-shrink: 0;
+  font-weight: 700; margin-top: 0.05rem;
+}
+.exp-bullets li strong { color: var(--white); font-weight: 600; }
+
+/* ── PROJECTS ── */
+#projects {
+  padding: 5rem 3rem;
+  background: var(--bg);
+}
+.projects-scroll {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px; margin-top: 3rem;
+}
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden; position: relative;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.project-card:hover { transform: translateY(-6px); border-color: var(--purple); }
+.project-card-top {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--surface2), var(--surface));
+  border-bottom: 1px solid var(--border);
+  min-height: 140px; position: relative; overflow: hidden;
+}
+.project-card-bg-num {
+  position: absolute; right: -0.5rem; bottom: -1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 7rem; line-height: 1;
+  color: rgba(255,255,255,0.04); pointer-events: none;
+}
+.project-num-badge {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem; letter-spacing: 0.1em;
+  color: var(--pink); margin-bottom: 0.5rem;
+}
+.project-channel-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+.channel-tag {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: 2px;
+}
+.channel-tag.g { background: rgba(0,229,255,0.12); color: var(--cyan); }
+.channel-tag.m { background: rgba(180,79,255,0.12); color: var(--purple); }
+.channel-tag.y { background: rgba(255,230,0,0.12); color: var(--yellow); }
+.channel-tag.p { background: rgba(255,45,120,0.12); color: var(--pink); }
+
+.project-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem; font-weight: 800; line-height: 1.2;
+}
+
+.project-card-body { padding: 1.5rem 2rem; }
+.project-desc {
+  font-size: 0.78rem; color: var(--muted);
+  line-height: 1.65; margin-bottom: 1.2rem;
+}
+.project-results { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.result-pill {
+  padding: 0.28rem 0.65rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.06em; color: var(--white);
+}
+
+/* ── SKILLS ── */
+#skills {
+  padding: 5rem 3rem;
+  background: var(--bg2);
+  position: relative; overflow: hidden;
+}
+#skills::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 40% 50% at 90% 50%, rgba(180,79,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 10% 80%, rgba(0,229,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.skills-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; margin-top: 3rem;
+  position: relative; z-index: 1;
+}
+.skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.8rem 1.5rem;
+  transition: border-color 0.3s;
+}
+.skill-group:hover { border-color: var(--purple); }
+.skill-group-header {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin-bottom: 1.2rem; padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.skill-group-icon { font-size: 1.2rem; }
+.skill-group-title {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--white);
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  padding: 0.3rem 0.65rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.72rem; font-weight: 500;
+  color: rgba(240,240,240,0.7);
+  transition: all 0.2s;
+}
+.skill-tag:hover {
+  background: rgba(255,45,120,0.12);
+  border-color: rgba(255,45,120,0.3);
+  color: var(--white);
+}
+.skill-tag.hot {
+  background: rgba(255,45,120,0.1);
+  border-color: rgba(255,45,120,0.25);
+  color: #ff8ab0;
+}
+
+/* ── CERTS ── */
+#certs {
+  padding: 4rem 3rem;
+  background: var(--bg);
+}
+.certs-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; margin-top: 2.5rem;
+}
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cert-card:hover {
+  border-color: var(--yellow);
+  background: rgba(255,230,0,0.03);
+}
+.cert-badge {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: rgba(255,230,0,0.1);
+  border: 1px solid rgba(255,230,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.cert-name { font-size: 0.83rem; font-weight: 600; line-height: 1.3; }
+.cert-issuer { font-size: 0.7rem; color: var(--yellow); margin-top: 0.3rem; }
+
+/* ── CONTACT ── */
+#contact {
+  padding: 7rem 3rem;
+  background: var(--bg2);
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+#contact::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,45,120,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  letter-spacing: 0.05em; line-height: 0.9;
+  position: relative; z-index: 1; margin-bottom: 1.5rem;
+}
+.contact-headline .stroke {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.2);
+  color: transparent;
+}
+.contact-headline .filled { color: var(--pink); }
+
+.contact-sub {
+  font-size: 1rem; color: var(--muted); font-weight: 300;
+  max-width: 50ch; margin: 0 auto 3rem;
+  line-height: 1.7; position: relative; z-index: 1;
+}
+.contact-pills {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; flex-wrap: wrap;
+  position: relative; z-index: 1; margin-bottom: 3rem;
+}
+.contact-pill {
+  padding: 0.8rem 1.8rem;
+  border: 1px solid var(--border);
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--white); text-decoration: none;
+  display: flex; align-items: center; gap: 0.6rem;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: all 0.2s;
+}
+.contact-pill:hover {
+  background: var(--pink); border-color: var(--pink); color: var(--white);
+}
+.contact-pill.primary {
+  background: var(--pink); border-color: var(--pink);
+  font-weight: 700;
+}
+.availability {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(74,222,128,0.3);
+  background: rgba(74,222,128,0.06);
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #4ade80; position: relative; z-index: 1;
+}
+.avail-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+/* FOOTER */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.3);
+}
+.footer-logo span { color: var(--pink); }
+.footer-copy {
+  font-size: 0.65rem; color: rgba(255,255,255,0.2);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: 0; }
+.section-eyebrow { margin-bottom: 0.8rem; }
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; line-height: 1.1;
+  color: var(--white);
+}
+.section-title .grad {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 2px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  #hero { padding: 100px 1.5rem 3rem; }
+  .hero-name { font-size: clamp(3.5rem, 18vw, 8rem); }
+  #about { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2.5rem; }
+  .metrics-grid, .skills-grid, .certs-grid, .projects-scroll { grid-template-columns: 1fr 1fr; }
+  #experience { padding: 3rem 1.5rem; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .exp-list { border-right: none; border-bottom: 1px solid var(--border); }
+  #projects, #skills, #certs, #contact { padding: 3rem 1.5rem; }
+  .contact-pills { flex-direction: column; align-items: center; }
+}
+@media (max-width: 580px) {
+  .metrics-grid, .skills-grid, .certs-grid, .projects-scroll { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ISR<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#metrics">Results</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-gradient"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-tag-row">
+    <span class="hero-tag">MSc Marketing · UoB</span>
+    <span class="hero-tag cyan">UK + India · 3+ Years</span>
+    <span class="hero-tag yellow">Open to Work</span>
+  </div>
+
+  <div class="hero-name">
+    <div>ISHANEE</div>
+    <div><span class="stroke">SINGH</span> <span class="pink">RATHORE</span></div>
+  </div>
+
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      <strong>Marketing & Sales Professional</strong> — I run paid media campaigns, manage client accounts, build pipelines, and close deals. From <strong>£8K/mo PPC budgets</strong> to <strong>£3,000 daily sales targets</strong>, I make numbers move.
+    </p>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- ROLE SWITCHER -->
+<div id="role-switch">
+  <div class="role-tabs">
+    <button class="role-tab active" data-role="ppc"><span class="role-tab-icon">🎯</span>Paid Search / PPC</button>
+    <button class="role-tab" data-role="account"><span class="role-tab-icon">🤝</span>Account Executive</button>
+    <button class="role-tab" data-role="comms"><span class="role-tab-icon">📣</span>Communications</button>
+    <button class="role-tab" data-role="sales"><span class="role-tab-icon">💰</span>Sales / SDR</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left reveal">
+    <div class="section-eyebrow">The person</div>
+    <h2 class="about-headline">Built on data.<br>Driven by <span class="highlight">results</span>.</h2>
+    <p style="font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:2rem;">
+      MSc Marketing graduate from the University of Birmingham. Originally from India, now based in the UK. I've worked across agency, in-house, and direct sales — which means I understand the full picture: how to generate a lead, manage a client, and close a deal.
+    </p>
+    <div class="edu-cards">
+      <div class="edu-card">
+        <div class="edu-degree">MSc Marketing</div>
+        <div class="edu-school">University of Birmingham</div>
+        <div class="edu-year">2023–2025 · High Distinction Project (75%)</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">BBA International Business</div>
+        <div class="edu-school">MIT World Peace University, Pune</div>
+        <div class="edu-year">2019–2022 · 84%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-right reveal">
+    <!-- PPC -->
+    <div class="role-panel active" id="panel-ppc">
+      <div class="role-panel-header">
+        <div class="role-panel-icon">🎯</div>
+        <div>
+          <div class="role-panel-title">Paid Search / PPC</div>
+          <div class="role-panel-sub">Google · Meta · LinkedIn · Shopping · Performance Max</div>
+        </div>
+      </div>
+      <p class="role-panel-body">
+        I've managed <strong>15+ simultaneous PPC campaigns</strong> across Google Search, Shopping, Performance Max, and Meta — with client budgets up to <strong>£8,000/month</strong>. At Ceramant, I independently ran 7 Google Search campaigns generating <strong>80+ qualified leads/month</strong>. I don't guess — I SQR audit weekly, mine negatives systematically, and tie paid media to landing page performance.
+      </p>
+      <div class="role-kpis">
+        <div class="role-kpi"><div class="kpi-val">20%</div><div class="kpi-label">Lead volume increase over 6 months</div></div>
+        <div class="role-kpi"><div class="kpi-val">21%</div><div class="kpi-label">Impression Share growth via bid strategy</div></div>
+        <div class="role-kpi"><div class="kpi-val">98%</div><div class="kpi-label">GMC product approval rate</div></div>
+        <div class="role-kpi"><div class="kpi-val">6%</div><div class="kpi-label">CPA reduction via Lookalike Audiences</div></div>
+      </div>
+      <ul class="role-bullets">
+        <li>Google Ads certified: Search, Shopping, Display, Performance Max, SA360</li>
+        <li>Agency experience managing 6 e-commerce clients simultaneously at Why Media</li>
+        <li>6% monthly waste reduction via SQR audits — 20+ negatives added weekly</li>
+        <li>Proficient in GA4, Semrush, SpyFu, GMC feed management, GTM basics</li>
+      </ul>
+    </div>
+
+    <!-- Account -->
+    <div class="role-panel" id="panel-account">
+      <div class="role-panel-header">
+        <div class="role-panel-icon">🤝</div>
+        <div>
+          <div class="role-panel-title">Account Executive</div>
+          <div class="role-panel-sub">Client Management · Campaign Lifecycle · Agency</div>
+        </div>
+      </div>
+      <p class="role-panel-body">
+        At Why Media, I was the <strong>primary contact for 25 SME clients simultaneously</strong> — managing briefs, campaign delivery, client queries, and renewals end-to-end. My MSc gave me real experience presenting Go-to-Market strategies to external clients and handling formal objection sessions live. I've worked across the full campaign lifecycle — strategy to execution to reporting.
+      </p>
+      <div class="role-kpis">
+        <div class="role-kpi"><div class="kpi-val">25</div><div class="kpi-label">SME clients managed simultaneously</div></div>
+        <div class="role-kpi"><div class="kpi-val">15%</div><div class="kpi-label">Proposal conversion uplift</div></div>
+        <div class="role-kpi"><div class="kpi-val">75%</div><div class="kpi-label">High Distinction on client strategy project</div></div>
+        <div class="role-kpi"><div class="kpi-val">100%</div><div class="kpi-label">Campaign delivery on brief & on time</div></div>
+      </div>
+      <ul class="role-bullets">
+        <li>Managed full campaign lifecycle: briefing → execution → reporting → renewal</li>
+        <li>Drove 15% uplift in proposal conversion via structured needs analysis</li>
+        <li>Skilled in Jira, Kanban, cross-functional coordination (Creative/SEO/Sales)</li>
+        <li>Presented formal GTM pitches to external stakeholders; defended under objection</li>
+      </ul>
+    </div>
+
+    <!-- Comms -->
+    <div class="role-panel" id="panel-comms">
+      <div class="role-panel-header">
+        <div class="role-panel-icon">📣</div>
+        <div>
+          <div class="role-panel-title">Communications & Marketing</div>
+          <div class="role-panel-sub">Content · Email · Social · Copywriting · Reporting</div>
+        </div>
+      </div>
+      <p class="role-panel-body">
+        I've managed content calendars, email databases of <strong>2,500+ contacts</strong>, and multi-channel campaigns across LinkedIn, Instagram, and Twitter using Sprout Social, HubSpot, and Mailchimp. I produce copy, brief designers, coordinate suppliers, and report on performance using GA4 and Looker Studio. My communications work maintains <strong>zero errors</strong> reaching clients.
+      </p>
+      <div class="role-kpis">
+        <div class="role-kpi"><div class="kpi-val">2.5K</div><div class="kpi-label">HubSpot contacts managed & segmented</div></div>
+        <div class="role-kpi"><div class="kpi-val">15%</div><div class="kpi-label">Average email open rate (above benchmark)</div></div>
+        <div class="role-kpi"><div class="kpi-val">230+</div><div class="kpi-label">Organic LinkedIn reach per trade show post</div></div>
+        <div class="role-kpi"><div class="kpi-val">100%</div><div class="kpi-label">Brand compliance on all content output</div></div>
+      </div>
+      <ul class="role-bullets">
+        <li>Sprout Social scheduling, Mailchimp workflows, HubSpot segmentation</li>
+        <li>Copywriting, proofreading, brand guideline compliance across all channels</li>
+        <li>Trade show content: photography, captions, LinkedIn posts reaching 230+ per post</li>
+        <li>Tools: Canva, Adobe Photoshop, Premiere Pro, Capcut, Looker Studio</li>
+      </ul>
+    </div>
+
+    <!-- Sales -->
+    <div class="role-panel" id="panel-sales">
+      <div class="role-panel-header">
+        <div class="role-panel-icon">💰</div>
+        <div>
+          <div class="role-panel-title">Sales / SDR / Admissions</div>
+          <div class="role-panel-sub">Pipeline · Needs Analysis · CRM · Lead Gen · Closing</div>
+        </div>
+      </div>
+      <p class="role-panel-body">
+        I've worked in phone sales, premium retail, and B2B outbound — and I know the full SDR cycle. At BT/EE I hit a <strong>22% daily retention rate</strong> across 20+ transactions per shift. At Metwiz, I managed a warm outbound pipeline, exceeded quarterly lead targets by <strong>15%</strong>, and handed off briefed, qualified leads to senior BDR teams.
+      </p>
+      <div class="role-kpis">
+        <div class="role-kpi"><div class="kpi-val">22%</div><div class="kpi-label">Daily retention rate at BT/EE</div></div>
+        <div class="role-kpi"><div class="kpi-val">15%</div><div class="kpi-label">Above quarterly lead gen targets</div></div>
+        <div class="role-kpi"><div class="kpi-val">£3K</div><div class="kpi-label">Daily sales target hit at Paul Smith</div></div>
+        <div class="role-kpi"><div class="kpi-val">40+</div><div class="kpi-label">Research institute leads generated</div></div>
+      </div>
+      <ul class="role-bullets">
+        <li>22% daily retention rate — 20+ successful resolutions per shift at BT/EE</li>
+        <li>Salesforce & HubSpot CRM — 100% data accuracy, clean pipeline reporting</li>
+        <li>GDPR compliant, FCA awareness certified; experienced in value-based selling</li>
+        <li>Objection handling, needs analysis, negotiation, qualification, appointment setting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <div class="metrics-marquee-bg">RESULTS RESULTS RESULTS RESULTS RESULTS RESULTS </div>
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Numbers don't lie</div>
+    <h2 class="section-title">Key <span class="grad">Metrics</span></h2>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric-card reveal"><div class="metric-glow"></div><div class="metric-num"><span class="unit">+</span>22<span class="unit">%</span></div><div class="metric-desc">Daily retention rate at BT/EE — 20+ successful transactions per shift via consultative selling</div><div class="metric-source">Sensee · BT/EE · 2025</div></div>
+    <div class="metric-card c reveal"><div class="metric-num"><span class="unit">+</span>20<span class="unit">%</span></div><div class="metric-desc">Lead volume increase over 6 months from PPC campaign optimisation and audience refinement</div><div class="metric-source">Ceramant · Google Ads</div></div>
+    <div class="metric-card y reveal"><div class="metric-num">£3<span class="unit">K</span></div><div class="metric-desc">Daily sales targets hit in premium retail, rising to £3,000 during Black Friday & Christmas peak</div><div class="metric-source">Paul Smith · 2024</div></div>
+    <div class="metric-card reveal"><div class="metric-num"><span class="unit">+</span>21<span class="unit">%</span></div><div class="metric-desc">Impression Share increase for high-priority search terms via strategic bid management</div><div class="metric-source">Google Ads</div></div>
+    <div class="metric-card c reveal"><div class="metric-num">98<span class="unit">%</span></div><div class="metric-desc">Google Merchant Center product approval rate through feed diagnostics and web team coordination</div><div class="metric-source">Why Media · GMC</div></div>
+    <div class="metric-card y reveal"><div class="metric-num"><span class="unit">+</span>15<span class="unit">%</span></div><div class="metric-desc">Uplift in proposal conversion after introducing structured needs analysis for 25 SME clients</div><div class="metric-source">Why Media Agency</div></div>
+    <div class="metric-card reveal"><div class="metric-num">75<span class="unit">%</span></div><div class="metric-desc">High Distinction on St Basils digital strategy — commended for objection handling & feasibility</div><div class="metric-source">University of Birmingham</div></div>
+    <div class="metric-card c reveal"><div class="metric-num">80<span class="unit">+</span></div><div class="metric-desc">Qualified inbound B2B leads generated per month from 7 simultaneous Google Search campaigns</div><div class="metric-source">Ceramant · 2025</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Career timeline</div>
+    <h2 class="section-title">Work <span class="grad">Experience</span></h2>
+  </div>
+  <div class="exp-grid reveal">
+    <div class="exp-list">
+      <div class="exp-tab active" data-exp="ceramant">
+        <div class="exp-tab-role">Digital Marketing Associate</div>
+        <div class="exp-tab-company">Ceramant Pvt Ltd</div>
+        <div class="exp-tab-date">Jun 2025 – Present · Remote UK</div>
+      </div>
+      <div class="exp-tab" data-exp="sensee">
+        <div class="exp-tab-role">Sales Agent</div>
+        <div class="exp-tab-company">Sensee · BT/EE</div>
+        <div class="exp-tab-date">Oct 2025 – Jan 2026 · Birkenhead UK</div>
+      </div>
+      <div class="exp-tab" data-exp="paulsmith">
+        <div class="exp-tab-role">Sales Consultant</div>
+        <div class="exp-tab-company">Paul Smith</div>
+        <div class="exp-tab-date">Oct 2024 – Jan 2025 · Cheshire UK</div>
+      </div>
+      <div class="exp-tab" data-exp="whymedia">
+        <div class="exp-tab-role">Digital Advertising Assistant</div>
+        <div class="exp-tab-company">Why Media – Creative Studio</div>
+        <div class="exp-tab-date">Sep 2022 – Aug 2023 · Bangalore India</div>
+      </div>
+      <div class="exp-tab" data-exp="metwiz">
+        <div class="exp-tab-role">Marketing & Sales Assistant</div>
+        <div class="exp-tab-company">Metwiz Materials</div>
+        <div class="exp-tab-date">Aug 2021 – Aug 2022 · Mumbai India</div>
+      </div>
+      <div class="exp-tab" data-exp="uob">
+        <div class="exp-tab-role">Teaching Assistant</div>
+        <div class="exp-tab-company">University of Birmingham</div>
+        <div class="exp-tab-date">Jun 2024 – Jul 2024 · Birmingham UK</div>
+      </div>
+    </div>
+    <div class="exp-detail">
+      <div class="exp-detail-panel active" id="exp-ceramant">
+        <div class="exp-detail-header">
+          <div class="exp-detail-role">Digital Marketing Associate</div>
+          <div class="exp-detail-meta">
+            <span class="exp-chip pink">Current Role</span>
+            <span class="exp-chip cyan">Remote · UK</span>
+            <span class="exp-chip yellow">PPC + CRM</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Planned and executed <strong>7 simultaneous Google Search campaigns</strong> generating 80+ qualified inbound leads/month for the B2B sales pipeline</li>
+          <li>Managed HubSpot database of <strong>2,500+ contacts</strong> with custom segmentation; B2B campaigns consistently achieved 15% average open rate</li>
+          <li>Tracked full prospect journey in CRM ensuring <strong>100% accurate lead attribution</strong> and clean pipeline reporting for the sales team</li>
+          <li>Collaborated with SEO and UX/UI teams to overhaul B2B web content — improved organic rankings and sessions to key product pages</li>
+          <li>Tested and iterated messaging across Meta and Google across 7 active campaigns simultaneously</li>
+        </ul>
+      </div>
+      <div class="exp-detail-panel" id="exp-sensee">
+        <div class="exp-detail-header">
+          <div class="exp-detail-role">Sales Agent — BT/EE</div>
+          <div class="exp-detail-meta">
+            <span class="exp-chip pink">Direct Sales</span>
+            <span class="exp-chip cyan">Birkenhead UK</span>
+            <span class="exp-chip yellow">FCA Certified</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Consistently hit <strong>22% daily retention rate</strong> and 2% weekly new mobile acquisition target through consultative needs analysis</li>
+          <li>Prevented customer churn by negotiating bespoke retention offers on broadband, mobile, and SIM-only contracts</li>
+          <li>Overcame pricing and service objections through confident objection handling and strategic negotiation — successfully closing new contracts</li>
+          <li>Managed <strong>high-volume callback schedules independently</strong> — zero leads dropped; full pipeline ownership end-to-end</li>
+          <li>GDPR compliant data entry and CRM management under strict FCA guidelines</li>
+        </ul>
+      </div>
+      <div class="exp-detail-panel" id="exp-paulsmith">
+        <div class="exp-detail-header">
+          <div class="exp-detail-role">Sales Consultant — Paul Smith</div>
+          <div class="exp-detail-meta">
+            <span class="exp-chip pink">Premium Retail</span>
+            <span class="exp-chip cyan">Cheshire UK</span>
+            <span class="exp-chip yellow">£3K Daily Target</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Consistently hit daily targets of <strong>£800–£3,000</strong> through consultative selling — rising to £3,000 on Black Friday and Christmas</li>
+          <li>Managed <strong>up to 20 simultaneous customer interactions</strong> during peak periods with strong time management</li>
+          <li>Drove loyalty programme sign-ups by confidently communicating app benefits and eligibility criteria</li>
+          <li>Processed all payments and data entry in full <strong>FCA/GDPR compliance</strong> under high-pressure trading conditions</li>
+        </ul>
+      </div>
+      <div class="exp-detail-panel" id="exp-whymedia">
+        <div class="exp-detail-header">
+          <div class="exp-detail-role">Digital Advertising Assistant</div>
+          <div class="exp-detail-meta">
+            <span class="exp-chip pink">Agency</span>
+            <span class="exp-chip cyan">Bangalore India</span>
+            <span class="exp-chip yellow">25 Clients</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Managed PPC execution for <strong>6 e-commerce clients</strong> with monthly budgets £1,000–£8,000; delivered consistent ROAS targets</li>
+          <li>Reduced monthly wasted ad spend by <strong>6%</strong> across all client accounts via rigorous SQR audits and 20+ weekly negative keywords</li>
+          <li>Achieved <strong>98% GMC product approval rate</strong> by coordinating with web team to resolve feed disapprovals and pricing mismatches</li>
+          <li>Primary liaison for 25 SME clients — managed briefs, queries, and renewals; drove <strong>15% uplift in proposal conversion</strong></li>
+          <li>Restructured Search campaigns into product-specific ad groups — 5% uplift in CTR and stronger Quality Score</li>
+        </ul>
+      </div>
+      <div class="exp-detail-panel" id="exp-metwiz">
+        <div class="exp-detail-header">
+          <div class="exp-detail-role">Marketing & Sales Assistant</div>
+          <div class="exp-detail-meta">
+            <span class="exp-chip pink">Placement Year</span>
+            <span class="exp-chip cyan">Mumbai India</span>
+            <span class="exp-chip yellow">B2B Pipeline</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Generated <strong>40+ qualified leads</strong> from research institutes and universities via targeted outreach — exceeded quarterly targets by 15%</li>
+          <li>Optimised LinkedIn Lead Gen Forms — <strong>15% increase in MQLs</strong> by refining job title, seniority, and industry targeting</li>
+          <li>Managed warm outbound pipeline: email campaigns, qualification calls, Salesforce CRM updates, and coordinated handovers to senior BDR team</li>
+          <li>Drafted and distributed monthly Mailchimp newsletter; coordinated trade show materials with designers and print suppliers</li>
+          <li>Trade show LinkedIn posts organically reached <strong>230+ members per post</strong> — 35%+ viewed by senior-level professionals</li>
+        </ul>
+      </div>
+      <div class="exp-detail-panel" id="exp-uob">
+        <div class="exp-detail-header">
+          <div class="exp-detail-role">Teaching Assistant — Expedia Challenge</div>
+          <div class="exp-detail-meta">
+            <span class="exp-chip pink">Leadership</span>
+            <span class="exp-chip cyan">Birmingham UK</span>
+            <span class="exp-chip yellow">1st Runner Up</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Orchestrated a 4-week marketing sprint for Expedia — managed Jira Kanban for <strong>100% on-time delivery</strong> of all deliverables</li>
+          <li>Central liaison between university faculty and Expedia corporate partners — ensured strategic alignment across all stakeholders</li>
+          <li>Mentored <strong>14 undergraduate students</strong> across two teams through the full project lifecycle</li>
+          <li>Team achieved <strong>1st Runner Up</strong> — commended for strategic alignment and professional communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Case studies</div>
+    <h2 class="section-title">Selected <span class="grad">Projects</span></h2>
+  </div>
+  <div class="projects-scroll">
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-card-bg-num">01</div>
+        <div class="project-num-badge">PROJECT 01</div>
+        <div class="project-channel-tags">
+          <span class="channel-tag g">Google Ads</span>
+          <span class="channel-tag g">Shopping</span>
+          <span class="channel-tag p">E-commerce</span>
+        </div>
+        <div class="project-title">D2C Fashion Brand — National Expansion</div>
+      </div>
+      <div class="project-card-body">
+        <p class="project-desc">Maisha by Esha needed to scale from Ahmedabad to pan-India while protecting ROAS. Designed phased city-by-city Google Search + Shopping campaigns with structured negative keywords and cart abandonment recovery.</p>
+        <div class="project-results">
+          <span class="result-pill">Clicks +18%</span>
+          <span class="result-pill">CTR +0.9%</span>
+          <span class="result-pill">Transactions +10%</span>
+          <span class="result-pill">Impression Share +5%</span>
+          <span class="result-pill">CPC -3%</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-card-bg-num">02</div>
+        <div class="project-num-badge">PROJECT 02</div>
+        <div class="project-channel-tags">
+          <span class="channel-tag m">LinkedIn</span>
+          <span class="channel-tag g">Google Search</span>
+          <span class="channel-tag p">B2B Leads</span>
+        </div>
+        <div class="project-title">Scientific Equipment — B2B Pipeline Growth</div>
+      </div>
+      <div class="project-card-body">
+        <p class="project-desc">Metwiz Materials needed qualified leads for their outbound sales team targeting research labs and universities. Built product-segmented LinkedIn Lead Gen Forms + Google Search campaigns with A/B tested landing pages.</p>
+        <div class="project-results">
+          <span class="result-pill">Qualified Leads +10%</span>
+          <span class="result-pill">Lead Quality 90%+</span>
+          <span class="result-pill">LinkedIn CTR +1%</span>
+          <span class="result-pill">Landing Page CVR +3%</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-card-bg-num">03</div>
+        <div class="project-num-badge">PROJECT 03</div>
+        <div class="project-channel-tags">
+          <span class="channel-tag m">Meta Ads</span>
+          <span class="channel-tag y">Higher Ed</span>
+          <span class="channel-tag p">Paid Social</span>
+        </div>
+        <div class="project-title">University Clearing — Student Acquisition</div>
+      </div>
+      <div class="project-card-body">
+        <p class="project-desc">MIT WPU needed to convert prospective students during a short clearing window. Built course-segmented Meta campaigns with custom + lookalike audiences, UGC-style video ads, and real-time retargeting.</p>
+        <div class="project-results">
+          <span class="result-pill">Applications +12%</span>
+          <span class="result-pill">Landing CVR +3%</span>
+          <span class="result-pill">Retargeting CVR 5%</span>
+          <span class="result-pill">Engagement +2%</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-card-bg-num">04</div>
+        <div class="project-num-badge">PROJECT 04</div>
+        <div class="project-channel-tags">
+          <span class="channel-tag g">Google Search</span>
+          <span class="channel-tag m">LinkedIn</span>
+          <span class="channel-tag y">Charity</span>
+        </div>
+        <div class="project-title">St Basils — Dual-Purpose Digital Strategy</div>
+      </div>
+      <div class="project-card-body">
+        <p class="project-desc">Led a team of four for St Basils charity — Google Search for vulnerable youth awareness, LinkedIn for corporate CSR fundraising. Proposed Google Ad Grants to eliminate budget constraints. Defended live under client objections.</p>
+        <div class="project-results">
+          <span class="result-pill">Grade: 75% (First Class)</span>
+          <span class="result-pill">Client Approved</span>
+          <span class="result-pill">Live Objections Handled</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-card-bg-num">05</div>
+        <div class="project-num-badge">PROJECT 05</div>
+        <div class="project-channel-tags">
+          <span class="channel-tag m">Meta / UGC</span>
+          <span class="channel-tag p">Go-to-Market</span>
+          <span class="channel-tag y">Sports</span>
+        </div>
+        <div class="project-title">Acme Whistle — Sports Market Entry</div>
+      </div>
+      <div class="project-card-body">
+        <p class="project-desc">Full GTM comms plan for Acme Whistle's launch into Football, Rugby & Basketball. Meta UGC content calendar, micro-influencer strategy, audience segmentation via Semrush, and high-fidelity Canva campaign prototypes.</p>
+        <div class="project-results">
+          <span class="result-pill">Grade: 75% (First Class)</span>
+          <span class="result-pill">3-Month Content Calendar</span>
+          <span class="result-pill">10 Micro-Influencers Mapped</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-card-bg-num">06</div>
+        <div class="project-num-badge">PROJECT 06</div>
+        <div class="project-channel-tags">
+          <span class="channel-tag g">Jira / Kanban</span>
+          <span class="channel-tag y">Leadership</span>
+          <span class="channel-tag p">Expedia</span>
+        </div>
+        <div class="project-title">Expedia Challenge — Sprint Lead</div>
+      </div>
+      <div class="project-card-body">
+        <p class="project-desc">As Teaching Assistant, orchestrated a 4-week marketing sprint for Expedia. Managed Jira Kanban for 14 students across two teams. Liaison between UoB faculty and Expedia stakeholders — 100% on-time delivery.</p>
+        <div class="project-results">
+          <span class="result-pill">1st Runner Up</span>
+          <span class="result-pill">100% On-Time</span>
+          <span class="result-pill">14 Students Mentored</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Toolkit</div>
+    <h2 class="section-title">Skills <span class="grad">& Tools</span></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-header"><span class="skill-group-icon">🎯</span><span class="skill-group-title">Paid Media</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag hot">Google Ads</span><span class="skill-tag hot">Meta Ads</span>
+        <span class="skill-tag">LinkedIn Ads</span><span class="skill-tag hot">Performance Max</span>
+        <span class="skill-tag">Google Shopping</span><span class="skill-tag">Search Ads 360</span>
+        <span class="skill-tag">Microsoft Ads</span><span class="skill-tag">SQR Audits</span>
+        <span class="skill-tag">Negative Keywords</span><span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Lookalike Audiences</span><span class="skill-tag">GMC Feed Mgmt</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-header"><span class="skill-group-icon">📊</span><span class="skill-group-title">Analytics & CRM</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag hot">GA4</span><span class="skill-tag hot">Salesforce</span>
+        <span class="skill-tag hot">HubSpot</span><span class="skill-tag">Looker Studio</span>
+        <span class="skill-tag">Semrush</span><span class="skill-tag">SpyFu</span>
+        <span class="skill-tag">Google Tag Manager</span><span class="skill-tag hot">Advanced Excel</span>
+        <span class="skill-tag">Pivot Tables</span><span class="skill-tag">Data Visualisation</span>
+        <span class="skill-tag">Jira / Kanban</span><span class="skill-tag">Klavio</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-header"><span class="skill-group-icon">📣</span><span class="skill-group-title">Content & Comms</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag hot">Copywriting</span><span class="skill-tag hot">Mailchimp</span>
+        <span class="skill-tag">Sprout Social</span><span class="skill-tag">Canva</span>
+        <span class="skill-tag">Adobe Photoshop</span><span class="skill-tag">Premiere Pro</span>
+        <span class="skill-tag">Capcut</span><span class="skill-tag">Content Calendar</span>
+        <span class="skill-tag">Email Marketing</span><span class="skill-tag">Proofreading</span>
+        <span class="skill-tag">Meta Business Suite</span><span class="skill-tag">Dash Hudson</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-header"><span class="skill-group-icon">💰</span><span class="skill-group-title">Sales & Soft Skills</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag hot">Needs Analysis</span><span class="skill-tag hot">Objection Handling</span>
+        <span class="skill-tag">Consultative Selling</span><span class="skill-tag">Value Propositions</span>
+        <span class="skill-tag">Pipeline Management</span><span class="skill-tag hot">Stakeholder Mgmt</span>
+        <span class="skill-tag">Client Liaison</span><span class="skill-tag">Negotiation</span>
+        <span class="skill-tag">GDPR Compliant</span><span class="skill-tag">FCA Awareness</span>
+        <span class="skill-tag">Cross-functional</span><span class="skill-tag">Mentoring</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Verified credentials</div>
+    <h2 class="section-title">Certifi<span class="grad">cations</span></h2>
+  </div>
+  <div class="certs-grid reveal">
+    <div class="cert-card"><div class="cert-badge">🎯</div><div><div class="cert-name">Google Ads — Search, Display & Shopping</div><div class="cert-issuer">Google Skillshop · 2025–2026</div></div></div>
+    <div class="cert-card"><div class="cert-badge">🛒</div><div><div class="cert-name">AI-Powered Shopping Ads Certification</div><div class="cert-issuer">Google Skillshop · 2025–2026</div></div></div>
+    <div class="cert-card"><div class="cert-badge">📊</div><div><div class="cert-name">Google Analytics 4 Certification</div><div class="cert-issuer">Google Skillshop · 2025–2026</div></div></div>
+    <div class="cert-card"><div class="cert-badge">🔍</div><div><div class="cert-name">Search Ads 360 Certification</div><div class="cert-issuer">Google Skillshop · 2025–2026</div></div></div>
+    <div class="cert-card"><div class="cert-badge">📈</div><div><div class="cert-name">Google Ads Measurement Certification</div><div class="cert-issuer">Google Skillshop · 2025–2026</div></div></div>
+    <div class="cert-card"><div class="cert-badge">🏦</div><div><div class="cert-name">FCA Awareness & Protecting Our Customer</div><div class="cert-issuer">BT Group · Sensee · 2025</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-headline reveal">
+    <div><span class="stroke">LET'S</span></div>
+    <div><span class="filled">WORK</span></div>
+    <div><span class="stroke">TOGETHER</span></div>
+  </div>
+  <p class="contact-sub reveal">Based in the United Kingdom. Open to roles across London and remote. Available for interviews immediately. Right to work confirmed.</p>
+  <div class="contact-pills reveal">
+    <a href="mailto:ishaneerathore@gmail.com" class="contact-pill primary">✉ ishaneerathore@gmail.com</a>
+    <a href="tel:+447748900570" class="contact-pill">📞 +44 7748 900 570</a>
+    <a href="https://linkedin.com/in/ishanee-rathore" target="_blank" class="contact-pill">in LinkedIn Profile</a>
+  </div>
+  <div class="availability reveal">
+    <div class="avail-dot"></div>
+    Available for opportunities · Immediate start
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">ISR<span>.</span></div>
+  <div class="footer-copy">Ishanee Singh Rathore · MSc Marketing · UoB · 2026</div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+function animRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); }
+animRing();
+
+// Role tabs
+document.querySelectorAll('.role-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.role-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.role).classList.add('active');
+  });
+});
+
+// Experience tabs
+document.querySelectorAll('.exp-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.exp-detail-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('exp-'+tab.dataset.exp).classList.add('active');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
